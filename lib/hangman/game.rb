@@ -36,7 +36,7 @@ module Hangman
             break
           end
         else
-          puts "OH NOES! The word dosen't contain '#{char}'"
+          puts "OH NOES! The word doesn't contain '#{char}'"
           @wrong_tries = @wrong_tries + 1
 
           if wrong_tries == chances
