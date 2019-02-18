@@ -16,10 +16,21 @@ module Hangman
       while true
         print "[#{chances - wrong_tries} chances left]: "
 
-        char = gets.chomp
+        def user_input 
+          user_guess = gets.chomp.to_s
+          if user_guess == " "
+            puts "Guess a letter"
+            user_guess = gets.chomp.to_s
+          else 
+            return user_guess
+          end 
+        end 
+
+        char = user_input
         Graphics.clear_screen
 
-        if word.include? char
+        
+        if word.include? char 
           if guess.include? char
             puts "You already entered '#{char}'. Yes, it is still correct.. 🙄"
             puts 'Try again: ' + Graphics.obfuscate_word(word, guess)
