@@ -21,10 +21,13 @@ WIN
     OBFUSCATION_CHAR = "👾"
 
     def self.clear_screen
-      # The ` ` allow you to run bash commands from inside your ruby code!
-      # clear itself is just a bash command… go ahead and try running it in
-      # your terminal!
-      puts `clear`
+      # `system()` allows you to run any terminal command from inside your ruby
+      # code!
+      #
+      # `clear` => clear screen on mac and linux
+      # `cls`   => clear screen in windows cmd
+      # if neither is working print 100 blank lines
+      system("clear") || system("cls") || puts("\n" * 100)
     end
 
     def self.obfuscate_word word, guessed
